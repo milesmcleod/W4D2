@@ -14,4 +14,6 @@ class Cat < ApplicationRecord
     COLORS
   end
 
+  has_many :cat_rental_requests, dependent: :destroy
+
 end

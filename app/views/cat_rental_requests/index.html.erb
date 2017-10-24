@@ -1,0 +1,14 @@
+<h1>Rentals</h1>
+
+
+
+
+<% @rentals.each do |rental| %>
+
+  <h3>Name: <%= rental.cat.name %></h3>
+  <ul>
+    <li>Start: <%= rental.start_date %></li>
+    <li>End: <%= rental.end_date %></li>
+  <li>Status: <%= rental.status %></li>
+  </ul>
+<% end %>
