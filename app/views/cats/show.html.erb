@@ -18,3 +18,22 @@
     <td><%= @cat.description %></td>
   </tr>
 </table>
+</br>
+<%= button_to "Request Rental", new_cat_rental_request_url, method: :get%>
+
+<br>
+<h3> Rental Requests </h3>
+<br>
+<table>
+  <th>Start Date</th>
+  <th>End Date</th>
+
+  <% @rentals.each do |rental| %>
+   <tr>
+     <td><%=rental.start_date %></td>
+     <td><%=rental.end_date %></td>
+     <td> <%= button_to "Approve", approve_url(rental), method: :patch if rental.pending?%> </td>
+     <td> <%= button_to "Deny", deny_url(rental), method: :patch if rental.pending?%> </td>
+   </tr>
+   <% end %>
+</table>
